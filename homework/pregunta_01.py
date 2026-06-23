@@ -43,19 +43,15 @@ import matplotlib.pyplot as plt
 
 
 def pregunta_01():
-    #
-    # Crear carpeta docs
-    #
+    
+   
+    
     os.makedirs("docs", exist_ok=True)
 
-    #
-    # Leer datos
-    #
+    
     df = pd.read_csv("files/input/shipping-data.csv")
 
-    #
-    # 1. Envíos por bodega
-    #
+  
     plt.figure(figsize=(6, 4))
     df["Warehouse_block"].value_counts().sort_index().plot(kind="bar")
     plt.title("Shipping per Warehouse")
@@ -65,9 +61,7 @@ def pregunta_01():
     plt.savefig("docs/shipping_per_warehouse.png")
     plt.close()
 
-    #
-    # 2. Modo de envío
-    #
+ 
     plt.figure(figsize=(6, 4))
     df["Mode_of_Shipment"].value_counts().plot(kind="bar")
     plt.title("Mode of Shipment")
@@ -77,9 +71,7 @@ def pregunta_01():
     plt.savefig("docs/mode_of_shipment.png")
     plt.close()
 
-    #
-    # 3. Promedio de calificación por bodega
-    #
+    
     plt.figure(figsize=(6, 4))
     (
         df.groupby("Warehouse_block")["Customer_rating"]
@@ -94,9 +86,7 @@ def pregunta_01():
     plt.savefig("docs/average_customer_rating.png")
     plt.close()
 
-    #
-    # 4. Distribución del peso
-    #
+   
     plt.figure(figsize=(6, 4))
     df["Weight_in_gms"].plot(kind="hist", bins=20)
     plt.title("Weight Distribution")
@@ -106,9 +96,7 @@ def pregunta_01():
     plt.savefig("docs/weight_distribution.png")
     plt.close()
 
-    #
-    # Crear dashboard HTML
-    #
+    
     html = """
     <!DOCTYPE html>
     <html>
